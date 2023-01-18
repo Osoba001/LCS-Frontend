@@ -1,0 +1,59 @@
+﻿@using Blazored.LocalStorage;
+@using LCS.BWA.AbstractServices;
+@using LCS.BWA.Components.UserComponents
+@using Components
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
+@inherits LayoutComponentBase
+@inject ILocalStorageService localStorage
+@inject AuthenticationStateProvider _authStateProvider
+@implements IErrorInfo
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <LoginLogoutButton/>
+        </div>
+
+        <article class="content px-4">
+            @if (isErrorActive)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close" @onclick="HideError">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            <CascadingValue Value="this" Name="ErrorComponent">
+                @Body
+            </CascadingValue>
+        </article>
+    </main>
+</div>
+@code{
+    bool isErrorActive;
+    string title;
+    string msg;
+    public void ShowError(string title,string msg)
+    {
+        this.isErrorActive = true;
+        this.title = title;
+        this.msg = msg;
+        StateHasChanged();
+    }
+    private void HideError()
+    {
+        isErrorActive = false;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+       
+        await _authStateProvider.GetAuthenticationStateAsync();
+        await localStorage.RemoveItemAsync("token");
+        // return base.OnInitializedAsync();
+    }
+}

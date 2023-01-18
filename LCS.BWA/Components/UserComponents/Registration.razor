@@ -1,0 +1,40 @@
+﻿@layout MainLayout
+@page "/register"
+
+<div class="container-md d-flex flex-column justify-content-center align-content-center align-items-center">
+    <div class="shadow-lg p-5 mx-5 rounded col-sm-11 col-md-7 col-lg-5 flex-column justify-content-center" style="background-color:#f2f2f2">
+        <EditForm Model="@newUser" OnValidSubmit="@InsertUser">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="d-flex justify-content-center">
+                <h3 style="font-weight:bold; color:purple">Register</h3>
+            </div>
+
+            <div class="d-grid m-2">
+                <label class="form-label">Username</label>
+                <InputText class="form-control" @bind-Value="newUser.UserName" />
+
+            </div>
+            <div class="d-grid m-2">
+                <label class="form-label">Email</label>
+                <InputText class="form-control" @bind-Value="newUser.Email" />
+
+            </div>
+
+
+            <div class="d-grid m-2">
+                <label class="form-label">Password</label>
+                <InputText type="password" placeholder="Password" class="form-control" @bind-Value="newUser.Password" />
+            </div>
+            <div class="d-grid m-2">
+                <label class="form-label">Confirm Password</label>
+                <InputText type="password" placeholder="Confirm Password" class="form-control" @bind-Value="newUser.ConfirmPassword" />
+            </div>
+
+            <div class="col-12 row justify-content-center">
+                @* <input type="submit" class="form-control col-12 btn btn-primary " value="Submit"/>*@
+                <button type="submit" class="btn btn-primary justify-content-center">Submit</button>
+            </div>
+        </EditForm>
+    </div>
+</div>

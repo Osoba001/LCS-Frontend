@@ -1,0 +1,55 @@
+﻿@layout MainLayout
+@page "/login"
+
+<div class="container d-flex flex-column justify-content-center align-content-center align-items-center">
+    <div class=" shadow-lg p-5 bg-white m-5 rounded flex-column justify-content-center" style="background-color:#f2f2f2">
+        <EditForm Model="@loginCommand" OnValidSubmit="@SubmitLogin">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div>
+                <div hidden="@HideFailureError">
+                    <h4 class="text-danger">@ErrorMessage </h4>
+                </div>
+                <br />
+            </div>
+            <div class="d-flex justify-content-center">
+                <h3 style="font-weight:bold; color:purple">Login</h3>
+            </div>
+            <div>
+                <br />
+            </div>
+            <div class="col-12 row">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+                    <InputText class="form-control" @bind-Value="loginCommand.Email" placeholder="Email" />
+                </div>
+
+            </div>
+            <br />
+            <div class="col-12 row">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"> <i class="bi bi-key"></i></span>
+                    <InputText type="password" class="form-control" @bind-Value="loginCommand.Password" placeholder="Password" />
+                </div>
+            </div>
+            <br />
+            <div class="form-check">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Remember me
+                </label>
+                <InputCheckbox class="form-check-input" @bind-Value="loginCommand.RememberMe" id="flexCheckDefault">
+
+                </InputCheckbox>
+            </div>
+            <br />
+            <div class="col-12 row">
+                <span class="col-12"></span>
+                <button type="submit" class="btn btn-primary justify-content-center">Submit</button>
+            </div>
+        </EditForm>
+        <div class="d-flex justify-content-between">
+            <a href="#">Forgot password</a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\bin\Debug\net7.0\LCS.Inferastrure.deps.json
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\bin\Debug\net7.0\LCS.Inferastrure.dll
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\bin\Debug\net7.0\LCS.Inferastrure.pdb
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.AssemblyInfo.cs
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.dll
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\refint\LCS.Inferastrure.dll
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\LCS.Inferastrure.pdb
+C:\Users\DELL\Desktop\Apps\LCSFrontend\LCS.Inferastrure\obj\Debug\net7.0\ref\LCS.Inferastrure.dll
