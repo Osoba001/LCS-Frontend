@@ -20,7 +20,7 @@ namespace LCS.BWA.Components.UserComponents
 {
     public partial class Registration
     {
-        RegisterCommand newUser = new();
+        RegisterModel newUser = new();
         [Inject]
         private IUserService userService { get; set; }
         [CascadingParameter(Name ="ErrorComponent")]

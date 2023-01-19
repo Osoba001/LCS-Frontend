@@ -6,8 +6,8 @@ namespace LCS.BWA.AbstractServices
     public interface IUserService
     {
 
-        Task<ActionResult> Register(RegisterCommand registerCommand);
-        Task<ActionResult> Login(LoginCommand loginCommand);
+        Task<ActionResult> Register(RegisterModel registerCommand);
+        Task<ActionResult> Login(LoginModel loginCommand);
         Task<ActionResult> ForgottenPassword(string email);
         Task<ActionResult> RecoverPassword(ConfirmRecoverPinCommand recoverPinCommand);
         Task<ActionResult> NewPassword(NewPasswordCommand newPasswordCommand);

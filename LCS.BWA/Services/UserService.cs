@@ -76,8 +76,9 @@ namespace LCS.BWA.Services
             return await ReturnAction(resp);
         }
 
-        public async Task<ActionResult> Login(LoginCommand loginCommand)
+        public async Task<ActionResult> Login(LoginModel login)
         {
+            LoginCommand loginCommand = login;
             var resp = await _httpClient.PostAsJsonAsync("auth/login", loginCommand);
             await SaveToken(resp);
             return await ReturnAction(resp);
@@ -95,9 +96,10 @@ namespace LCS.BWA.Services
             return await ReturnAction(resp);
         }
 
-        public async Task<ActionResult> Register(RegisterCommand registerCommand)
+        public async Task<ActionResult> Register(RegisterModel registerModel)
         {
-            var resp = await _httpClient.PostAsJsonAsync("/auth", registerCommand);
+            RegisterCommand registerCommand = registerModel;
+            var resp = await _httpClient.PostAsJsonAsync("auth", registerCommand);
             await SaveToken(resp);
             return await ReturnAction(resp);
         }
@@ -128,20 +130,25 @@ namespace LCS.BWA.Services
 
         private static async Task<ActionResult> ReturnAction(HttpResponseMessage resp)
         {
+            var res = new ActionResult();
             if (resp.IsSuccessStatusCode)
-                return new ActionResult();
+                return res;
+            else if(resp.StatusCode == System.Net.HttpStatusCode.NotFound)
+                res.AddError($"Not found! {resp.RequestMessage.RequestUri}");
             else
             {
-                var res = new ActionResult();
-                res.AddError(await resp.Content.ReadAsStringAsync());
-                return res;
+                string err = await resp.Content.ReadAsStringAsync();
+                res.AddError($"{err} {resp.StatusCode}");
             }
+            return res;
         }
         private static async Task<ActionResult<T>> ReturnAction<T>(HttpResponseMessage resp) where T : class
         {
             var res = new ActionResult<T>();
             if (resp.IsSuccessStatusCode)
                 res.Entities = await resp.Content.ReadFromJsonAsync<List<T>>() ?? new List<T>();
+            else if (resp.StatusCode == System.Net.HttpStatusCode.NotFound)
+                res.AddError($"Not found!");
             else
                 res.AddError(await resp.Content.ReadAsStringAsync());
             return res;

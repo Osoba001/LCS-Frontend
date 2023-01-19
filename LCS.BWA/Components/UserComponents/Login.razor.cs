@@ -6,7 +6,7 @@ namespace LCS.BWA.Components.UserComponents
 {
     public partial class Login
     {
-        LoginCommand loginCommand = new LoginCommand();
+        LoginModel loginCommand = new LoginModel();
         [Inject]
         private IUserService userService { get; set; }
         public bool HideFailureError { get; set; } = true;
